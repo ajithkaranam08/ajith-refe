@@ -10,6 +10,8 @@ import {
 } from "react-native-appwrite";
 import * as Linking from "expo-linking";
 import { openAuthSessionAsync } from "expo-web-browser";
+import { makeRedirectUri } from 'expo-auth-session'
+import * as WebBrowser from 'expo-web-browser';
 
 export const config = {
   platform: "com.refe",
@@ -37,20 +39,22 @@ export const storage = new Storage(client);
 
 export async function login() {
   try {
-    const redirectUri = Linking.createURL("/", { scheme: "com.ajithkaranam.refe" });
-
+    const redirectUri = Linking.createURL("/", { scheme: "myapp" });
+    // const deepLink = new URL(makeRedirectUri({ preferLocalhost: true }));
+    // console.log({ deepLink })
     const response = await account.createOAuth2Token(
       OAuthProvider.Google,
       redirectUri
     );
     if (!response) throw new Error("Create OAuth2 token failed");
-
+    console.log({ response })
     const browserResult = await openAuthSessionAsync(
       response.toString(),
       redirectUri
     );
-    if (browserResult.type !== "success"){
-        return false
+    console.log({ browserResult })
+    if (browserResult.type !== "success") {
+      return false
     }
     const url = new URL(browserResult.url);
     const secret = url.searchParams.get("secret")?.toString();

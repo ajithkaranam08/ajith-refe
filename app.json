@@ -19,6 +19,14 @@
       "package": "com.ajithkaranam.refe",
       "permissions": [
         "INTERNET"
+      ],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "data": {
+            "scheme": "com.ajithkaranam.refe"
+          }
+        }
       ]
     },
     "web": {
