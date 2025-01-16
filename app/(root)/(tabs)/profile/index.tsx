@@ -7,13 +7,15 @@ import {
   Text,
   TouchableOpacity,
   View,
-} from "react-native";
+} from 'react-native';
 
-import { logout } from "@/lib/appwrite";
-import { useGlobalContext } from "@/lib/global-provider";
+import { logout } from '@/lib/appwrite';
+import { useGlobalContext } from '@/lib/global-provider';
 
-import icons from "@/constants/icons";
-import { settings } from "@/constants/data";
+import icons from '@/constants/icons';
+import { settings } from '@/constants/data';
+import { router } from 'expo-router';
+import images from '@/constants/images';
 
 interface SettingsItemProp {
   icon: ImageSourcePropType;
@@ -51,15 +53,15 @@ const Profile = () => {
   const handleLogout = async () => {
     const result = await logout();
     if (result) {
-      Alert.alert("Success", "Logged out successfully");
-      refetch();
+      Alert.alert('Success', 'Logged out successfully');
+      refetch({});
     } else {
-      Alert.alert("Error", "Failed to logout");
+      Alert.alert('Error', 'Failed to logout');
     }
   };
 
   return (
-    <SafeAreaView className="h-full bg-white">
+    <SafeAreaView className="h-full bg-white sticky">
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerClassName="pb-32 px-7 pt-10 sticky"
@@ -72,7 +74,7 @@ const Profile = () => {
         <View className="flex flex-row justify-center mt-5">
           <View className="flex flex-col items-center relative mt-5">
             <Image
-              source={{ uri: user?.avatar }}
+              source={images.avatar}
               className="size-44 relative rounded-full"
             />
             <TouchableOpacity className="absolute bottom-11 right-2">
@@ -90,7 +92,11 @@ const Profile = () => {
 
         <View className="flex flex-col mt-5 border-t pt-5 border-primary-200">
           {settings.slice(2).map((item, index) => (
-            <SettingsItem key={index} {...item} />
+            <SettingsItem
+              key={index}
+              {...item}
+              onPress={() => router.replace('/profile/my-booking')}
+            />
           ))}
         </View>
 

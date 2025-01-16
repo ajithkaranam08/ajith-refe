@@ -7,21 +7,21 @@ import {
   View,
   Dimensions,
   Platform,
-} from "react-native";
-import { router, useLocalSearchParams } from "expo-router";
+} from 'react-native';
+import { router, useLocalSearchParams } from 'expo-router';
 
-import icons from "@/constants/icons";
-import images from "@/constants/images";
-import Comment from "@/components/Comment";
-import { facilities } from "@/constants/data";
+import icons from '@/constants/icons';
+import images from '@/constants/images';
+import Comment from '@/components/Comment';
+import { facilities } from '@/constants/data';
 
-import { useAppwrite } from "@/lib/useAppwrite";
-import { getPropertyById } from "@/lib/appwrite";
+import { useAppwrite } from '@/lib/useAppwrite';
+import { getPropertyById } from '@/lib/appwrite';
 
 const Property = () => {
   const { id } = useLocalSearchParams<{ id?: string }>();
 
-  const windowHeight = Dimensions.get("window").height;
+  const windowHeight = Dimensions.get('window').height;
 
   const { data: property } = useAppwrite({
     fn: getPropertyById,
@@ -50,7 +50,7 @@ const Property = () => {
           <View
             className="z-50 absolute inset-x-7"
             style={{
-              top: Platform.OS === "ios" ? 70 : 20,
+              top: Platform.OS === 'ios' ? 70 : 20,
             }}
           >
             <View className="flex flex-row items-center w-full justify-between mt-8">
@@ -65,7 +65,7 @@ const Property = () => {
                 <Image
                   source={icons.heart}
                   className="size-7"
-                  tintColor={"#191D31"}
+                  tintColor={'#191D31'}
                 />
                 <Image source={icons.send} className="size-7" />
               </View>
@@ -74,10 +74,23 @@ const Property = () => {
         </View>
 
         <View className="px-5 mt-7 flex gap-2">
-          <Text className="text-2xl font-rubik-extrabold">
-            {property?.name}
-          </Text>
-
+          <View className="flex flex-row gap-3 justify-between">
+            <Text className="text-2xl font-rubik-extrabold">
+              {property?.name}
+            </Text>
+            <View className="flex flex-row gap-6">
+              <Image
+                source={icons.chat}
+                tintColor={'#ff4500'}
+                className="size-8"
+              />
+              <Image
+                source={icons.phone}
+                tintColor={'#ff4500'}
+                className="size-8"
+              />
+            </View>
+          </View>
           <View className="flex flex-row items-center gap-3">
             <View className="flex flex-row items-center px-4 py-2 bg-primary-100 rounded-full">
               <Text className="text-xs font-rubik-bold text-primary-300">
@@ -92,10 +105,13 @@ const Property = () => {
               </Text>
             </View>
           </View>
-
           <View className="flex flex-row items-center mt-5">
             <View className="flex flex-row items-center justify-center bg-primary-100 rounded-full size-10">
-              <Image source={icons.bed} className="size-4" />
+              <Image
+                tintColor={'#ff4500'}
+                source={icons.bed}
+                className="size-4"
+              />
             </View>
             <Text className="text-black-300 text-sm font-rubik-medium ml-2">
               {property?.bedrooms} Beds
@@ -264,7 +280,7 @@ const Property = () => {
               numberOfLines={1}
               className="text-primary-300 text-start text-2xl font-rubik-bold"
             >
-              ${property?.price}
+              ₹{property?.price}
             </Text>
           </View>
 

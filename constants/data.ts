@@ -68,36 +68,44 @@ export const settings = [
   {
     title: "My Bookings",
     icon: icons.calendar,
+    href: '/profile/my-booking'
   },
   {
     title: "Payments",
     icon: icons.wallet,
+    href: '/profile/payments'
   },
   {
     title: "Profile",
     icon: icons.person,
+    href: '/profile/profile'
   },
   {
     title: "Notifications",
     icon: icons.bell,
+    href: '/profile/notifications'
   },
   {
     title: "Security",
     icon: icons.shield,
+    href: '/profile/security'
   },
   {
     title: "Language",
     icon: icons.language,
+    href: '/profile/language'
   },
   {
     title: "Help Center",
     icon: icons.info,
+    href: '/profile/help-center'
   },
   {
     title: "Invite Friends",
     icon: icons.people,
+    href: '/profile/invite-friends'
   },
-];
+] as const;
 
 export const facilities = [
   {

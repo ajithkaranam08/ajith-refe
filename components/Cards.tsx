@@ -1,7 +1,7 @@
-import icons from "@/constants/icons";
-import images from "@/constants/images";
-import { Image, Text, TouchableOpacity, View } from "react-native";
-import { Models } from "react-native-appwrite";
+import icons from '@/constants/icons';
+import images from '@/constants/images';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Models } from 'react-native-appwrite';
 
 interface Props {
   item: Models.Document;
@@ -36,12 +36,12 @@ export const FeaturedCard = ({ item, onPress }: Props) => {
           {item.name}
         </Text>
         <Text className="text-base font-rubik text-white" numberOfLines={1}>
-          {item.address}
+          {item.type}
         </Text>
 
         <View className="flex flex-row items-center justify-between w-full">
           <Text className="text-xl font-rubik-extrabold text-white">
-            ${item.price}
+            ₹{item.price}
           </Text>
           <Image source={icons.heart} className="size-5" />
         </View>
@@ -69,9 +69,7 @@ export const Card = ({ item, onPress }: Props) => {
         <Text className="text-base font-rubik-bold text-black-300">
           {item.name}
         </Text>
-        <Text className="text-xs font-rubik text-black-100">
-          {item.address}
-        </Text>
+        <Text className="text-xs font-rubik text-black-100">{item.type}</Text>
 
         <View className="flex flex-row items-center justify-between mt-2">
           <Text className="text-base font-rubik-bold text-primary-300">
