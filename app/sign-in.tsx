@@ -18,7 +18,7 @@ const SignIn = () => {
         Enter Mobile Number
       </Text>
       <TextInput
-        className="w-full h-12 bg-white border border-gray-300 rounded-md px-4 text-gray-900"
+        className="w-full h-12 bg-white border rounded-2xl border-gray-300 px-4 text-gray-900"
         value={number}
         onChangeText={setNumber}
         placeholderTextColor="#9CA3AF" // Tailwind gray-400
