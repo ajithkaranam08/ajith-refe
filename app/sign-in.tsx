@@ -21,8 +21,8 @@ const SignIn = () => {
         className="w-full h-12 bg-white border border-gray-300 rounded-md px-4 text-gray-900"
         value={number}
         onChangeText={setNumber}
-        placeholder="Type something..."
         placeholderTextColor="#9CA3AF" // Tailwind gray-400
+        keyboardType="numeric"
       />
       <TouchableOpacity
         onPress={handleSignIn}
