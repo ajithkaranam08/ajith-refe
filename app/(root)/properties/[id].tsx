@@ -78,7 +78,7 @@ const Property = () => {
             <Text className="text-2xl font-rubik-extrabold">
               {property?.name}
             </Text>
-            <View className="flex flex-row gap-6">
+            {/* <View className="flex flex-row gap-6">
               <Image
                 source={icons.chat}
                 tintColor={'#ff4500'}
@@ -89,15 +89,19 @@ const Property = () => {
                 tintColor={'#ff4500'}
                 className="size-8"
               />
-            </View>
-          </View>
-          <View className="flex flex-row items-center gap-3">
+            </View> */}
             <View className="flex flex-row items-center px-4 py-2 bg-primary-100 rounded-full">
               <Text className="text-xs font-rubik-bold text-primary-300">
                 {property?.type}
               </Text>
             </View>
-
+          </View>
+          <View className="flex flex-row items-center gap-3">
+            {/* <View className="flex flex-row items-center px-4 py-2 bg-primary-100 rounded-full">
+              <Text className="text-xs font-rubik-bold text-primary-300">
+                {property?.type}
+              </Text>
+            </View> */}
             <View className="flex flex-row items-center gap-2">
               <Image source={icons.star} className="size-5" />
               <Text className="text-black-200 text-sm mt-1 font-rubik-medium">
@@ -269,28 +273,38 @@ const Property = () => {
           )}
         </View>
       </ScrollView>
+      <View className="absolute bg-white bottom-0 w-full rounded-t-2xl border-t border-r border-l border-primary-200 p-4">
+        <View className="flex flex-row items-center gap-3">
+          {/* Call Button */}
+          <TouchableOpacity className="flex-1 flex flex-row items-center justify-center bg-primary-300 py-3 rounded-xl shadow-md shadow-zinc-400">
+            <View className="flex flex-row items-center justify-center w-full">
+              <Image
+                source={icons.phone}
+                tintColor="#ffffff"
+                className="w-5 h-5 mr-2"
+              />
+              <Text className="text-white text-lg font-bold font-rubik-bold">
+                Call
+              </Text>
+            </View>
+          </TouchableOpacity>
 
-      <View className="absolute bg-white bottom-0 w-full rounded-t-2xl border-t border-r border-l border-primary-200 p-7">
-        <View className="flex flex-row items-center justify-between gap-10">
-          <View className="flex flex-col items-start">
-            <Text className="text-black-200 text-xs font-rubik-medium">
-              Price
-            </Text>
-            <Text
-              numberOfLines={1}
-              className="text-primary-300 text-start text-2xl font-rubik-bold"
-            >
-              ₹{property?.price}
-            </Text>
-          </View>
-
-          <TouchableOpacity className="flex-1 flex flex-row items-center justify-center bg-primary-300 py-3 rounded-full shadow-md shadow-zinc-400">
-            <Text className="text-white text-lg text-center font-rubik-bold">
-              Book Now
-            </Text>
+          {/* Chat Button */}
+          <TouchableOpacity className="flex-1 flex flex-row items-center justify-center bg-primary-300 py-3 rounded-xl shadow-md shadow-zinc-400">
+            <View className="flex flex-row items-center justify-center w-full">
+              <Image
+                source={icons.chat}
+                tintColor="#ffffff"
+                className="w-5 h-5 mr-2"
+              />
+              <Text className="text-white text-lg font-bold font-rubik-bold">
+                Chat
+              </Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>
+
     </View>
   );
 };

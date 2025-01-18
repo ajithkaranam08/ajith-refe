@@ -32,6 +32,8 @@ import wifi from "@/assets/icons/wifi.png";
 import location from "@/assets/icons/location.png";
 import edit from "@/assets/icons/edit.png";
 import sparrow from '@/assets/icons/sparrow.png'
+import setting from '@/assets/icons/setting.png'
+
 
 export default {
   google,
@@ -67,5 +69,6 @@ export default {
   wifi,
   location,
   edit,
-  sparrow
+  sparrow,
+  setting
 };
