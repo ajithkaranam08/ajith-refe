@@ -20,11 +20,10 @@ const TabIcon = ({
       className="size-6"
     />
     <Text
-      className={`${
-        focused
-          ? 'text-primary-300 font-rubik-medium'
-          : 'text-black-200 font-rubik'
-      } text-xs w-full text-center mt-1`}
+      className={`${focused
+        ? 'text-primary-300 font-rubik-medium'
+        : 'text-black-200 font-rubik'
+        } text-xs w-full text-center mt-1`}
     >
       {title}
     </Text>
@@ -41,7 +40,7 @@ const TabsLayout = () => {
           position: 'absolute',
           borderTopColor: '#0061FF1A',
           borderTopWidth: 1,
-          minHeight: 70,
+          minHeight: 60,
         },
       }}
     >
@@ -66,12 +65,12 @@ const TabsLayout = () => {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="settings"
         options={{
-          title: 'Profile',
+          title: 'Settings',
           headerShown: false,
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} icon={icons.person} title="Profile" />
+            <TabIcon focused={focused} icon={icons.setting} title="Settings" />
           ),
         }}
       />
