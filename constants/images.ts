@@ -7,6 +7,10 @@ import barChart from "@/assets/images/bar-chart.png";
 import whiteGradient from "@/assets/images/white-gradient.png";
 import map from "@/assets/images/map.png";
 import noResult from "@/assets/images/no-result.png";
+import refeBanner from "@/assets/images/refe-banner.png";
+import refeBanner2 from "@/assets/images/refe-2.png";
+
+
 
 export default {
   onboarding,
@@ -18,4 +22,6 @@ export default {
   whiteGradient,
   map,
   noResult,
+  refeBanner,
+  refeBanner2
 };
